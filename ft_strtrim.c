@@ -1,8 +1,8 @@
 #include "libft.h"
 
 typedef struct indexes {
-	unsigned int	start;
-	unsigned int	end;
+	int	start;
+	int	end;
 }				t_indexes;
 
 static int	is_in_set(char c, char const *set)

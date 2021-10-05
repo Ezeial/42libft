@@ -5,6 +5,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *))
 	t_list	*first;
 	t_list	*new;
 
+	new = ft_lstnew(f(lst->content));
+	first = new;
 	while (lst)
 	{
 		new = ft_lstnew(f(lst->content));

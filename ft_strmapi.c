@@ -6,6 +6,8 @@ char	*ft_strmapi(char *s, char(*f)(unsigned int, char))
 	unsigned int	i;
 	
 	mapped = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!mapped)
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{

@@ -38,7 +38,7 @@ bonus:			$(OBJS) $(BONUS_OBJS)
 				ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 so:
-				$(CC) -fPIC $(CFLAGS) $(SRCS)
-				gcc -shared -o libft.so $(OBJS) $(BONUS_OBJS)
+				$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
+				gcc -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_OBJS)
 
 .PHONY:			all clean fclean re bonus

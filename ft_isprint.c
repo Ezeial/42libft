@@ -2,5 +2,5 @@
 
 int	ft_isprint(int c)
 {
-	return (' ' <= (char)c && (char)c <= '~');
+	return (' ' <= c && c <= '~');
 }

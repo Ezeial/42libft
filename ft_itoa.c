@@ -31,6 +31,8 @@ char	*ft_itoa(int n)
 		sign = -sign;
 	final_str_len = get_digit_nb(n);
 	final_str = malloc(sizeof(char) * final_str_len + 1);
+	if (!final_str)
+		return (NULL);
 	un = ft_abs(n);
 	i = 0;
 	if (un == 0)

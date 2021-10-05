@@ -3,10 +3,10 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	unsigned int	i;
-	unsigned int	last_occurence;
+	int	last_occurence;
 
 	i = 0;
-	last_occurence = 0;
+	last_occurence = -1;
 	while (s[i])
 	{
 		if (s[i] == (char)c)
@@ -15,7 +15,7 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	if (c == '\0')
 		return ((char *)(s + i));
-	if (last_occurence != 0)
+	if (last_occurence != -1)
 		return ((char *)(s + last_occurence));
 	return (NULL);
 }

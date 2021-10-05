@@ -44,6 +44,8 @@ char	**ft_split(char const *s, char c)
 
 	init_indexes(&ids);
 	split = malloc(sizeof(char *) * (compute_substr_nb(s, c) + 1));
+	if (!split)
+		return (NULL);
 	while(s[ids.end])
 	{
 		while (s[ids.end] && s[ids.end] != c)
