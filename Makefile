@@ -21,6 +21,9 @@ CFLAGS			= -Wall -Wextra -Werror
 
 NAME			= libft.a
 
+%.o:			%.c
+				$(CC) $(CFLAGS) -c $<
+
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
@@ -41,4 +44,4 @@ so:
 				$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
 				gcc -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_OBJS)
 
-.PHONY:			all clean fclean re bonus
+.PHONY:			all clean fclean re bonus so
