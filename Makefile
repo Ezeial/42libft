@@ -26,7 +26,7 @@ NAME			= libft.a
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS)
+$(NAME):		$(OBJS) libft.h
 				ar rcs $(NAME) $(OBJS)
 
 clean:
