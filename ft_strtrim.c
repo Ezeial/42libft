@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/08 01:48:26 by egiraldi          #+#    #+#             */
+/*   Updated: 2021/11/08 01:48:27 by egiraldi         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 typedef struct indexes {
@@ -18,8 +30,8 @@ static int	is_in_set(char c, char const *set)
 
 static t_indexes	compute_trimmed_str(char const *str, char const *set)
 {
-	t_indexes ids;
-	
+	t_indexes	ids;
+
 	ids.start = 0;
 	ids.end = ft_strlen(str) - 1;
 	while (str[ids.start] && is_in_set(str[ids.start], set))

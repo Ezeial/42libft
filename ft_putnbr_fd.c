@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/08 01:48:51 by egiraldi          #+#    #+#             */
+/*   Updated: 2021/11/08 01:48:52 by egiraldi         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
@@ -5,7 +17,6 @@ void	ft_putnbr_fd(int n, int fd)
 	char	str[13];
 	int		sign;
 	int		len;
-
 
 	sign = 1;
 	if (n < 0)

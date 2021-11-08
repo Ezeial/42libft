@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/08 01:48:48 by egiraldi          #+#    #+#             */
+/*   Updated: 2021/11/08 01:59:31 by egiraldi         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 typedef struct indexes {
-	int start;
-	int end;
-	int i;
+	int	start;
+	int	end;
+	int	i;
 }		t_indexes;
 
 static void	init_indexes(t_indexes *ids)
@@ -19,7 +31,7 @@ static int	compute_substr_nb(char const *s, char c)
 	int			substr_nb;
 
 	init_indexes(&ids);
-	while(s[ids.end])
+	while (s[ids.end])
 	{
 		while (s[ids.end] && s[ids.end] != c)
 			ids.end++;
@@ -46,7 +58,7 @@ char	**ft_split(char const *s, char c)
 	split = malloc(sizeof(char *) * (compute_substr_nb(s, c) + 1));
 	if (!split)
 		return (NULL);
-	while(s[ids.end])
+	while (s[ids.end])
 	{
 		while (s[ids.end] && s[ids.end] != c)
 			ids.end++;
@@ -61,6 +73,6 @@ char	**ft_split(char const *s, char c)
 			ids.end = ids.start;
 		}
 	}
-	split[ids.i] = 0; 
+	split[ids.i] = 0;
 	return (split);
 }

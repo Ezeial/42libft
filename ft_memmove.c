@@ -1,21 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/08 01:48:55 by egiraldi          #+#    #+#             */
+/*   Updated: 2021/11/08 01:48:56 by egiraldi         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
-/*
-void *ft_memmove(void *dest, const void *src, size_t n)
-{
-	void	*src_copy;
 
-	if (!dest && !src)
-		return (NULL);
-	src_copy = ft_memdup(src, n);
-	ft_memcpy(dest, src_copy, n);
-	free(src_copy);
-	return (dest);
-
-*/
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char *d_copy;
-	char *s_copy;
+	char	*d_copy;
+	char	*s_copy;
 
 	d_copy = (char *)dst;
 	s_copy = (char *)src;
