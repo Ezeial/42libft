@@ -6,7 +6,7 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 00:52:50 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/11/08 01:49:13 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 02:12:33 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ static unsigned int	get_digit_nb(int n)
 	return (result);
 }
 
-void	build_str(unsigned int un, char *final_str, int *idx)
+static void	build_str(unsigned int un, char *final_str, size_t *idx)
 {
 	while (0 < un)
 	{
 		final_str[*idx] = (un % 10) + '0';
 		un /= 10;
-		*idx++;
+		(*idx)++;
 	}
 }
 
@@ -60,7 +60,7 @@ char	*ft_itoa(int n)
 	i = 0;
 	if (un == 0)
 		final_str[i++] = '0';
-	build_str(un, final_str, i);
+	build_str(un, final_str, &i);
 	if (sign < 0)
 		final_str[i++] = '-';
 	final_str[i] = '\0';

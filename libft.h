@@ -6,7 +6,7 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 02:00:38 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/11/08 02:01:20 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 02:21:08 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
 char			*ft_strmapi(const char *s, char (*f)(unsigned int, char));
+void			ft_striteri(const char *s, void (*f)(unsigned int, char *));
 
 unsigned int	ft_abs(int n);
 int				ft_atoi(const char *str);

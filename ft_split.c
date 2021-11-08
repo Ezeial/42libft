@@ -6,7 +6,7 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:48:48 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/11/08 01:59:31 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2021/11/08 02:10:59 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static int	compute_substr_nb(char const *s, char c)
 	int			substr_nb;
 
 	init_indexes(&ids);
+	substr_nb = 0;
 	while (s[ids.end])
 	{
 		while (s[ids.end] && s[ids.end] != c)
