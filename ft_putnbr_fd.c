@@ -6,7 +6,7 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:48:51 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/11/08 01:48:52 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/02 13:04:02 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,12 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	str[13];
-	int		sign;
-	int		len;
+	char	*number;
 
-	sign = 1;
-	if (n < 0)
-		sign *= -sign;
-	ft_bzero(str, 13);
-	len = 0;
-	if (n == 0)
-		str[len] = '0';
-	while (n != 0)
+	number = ft_itoa(n);
+	if (number)
 	{
-		str[len++] = '0' + ft_abs(n % 10);
-		n = (n / 10);
+		write(fd, number, ft_strlen(number));
+		free(number);
 	}
-	if (sign < 0)
-		str[len] = '-';
-	else if (len > 0)
-		len--;
-	while (len >= 0)
-		write(fd, &str[len--], 1);
 }

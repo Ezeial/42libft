@@ -6,7 +6,7 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:49:23 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/11/08 01:49:24 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/02 11:57:15 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 int	ft_isalnum(int c)
 {
-	if (ft_isalpha(c) || ft_isdigit(c))
-		return (c);
-	return (0);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }

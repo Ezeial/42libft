@@ -6,63 +6,67 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 00:52:50 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/11/08 02:12:33 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/02 12:44:02 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static unsigned int	get_digit_nb(int n)
-{
-	unsigned int	result;
-	unsigned int	un;
+typedef enum e_sign {
+	NEGATIVE = -1,
+	POSITIVE = 1
+}	t_sign;
 
-	if (n == 0)
-		return (1);
-	result = 0;
-	if (n < 0)
-		result++;
-	un = ft_abs(n);
-	while (0 < un)
+typedef struct s_strbuilder {
+	char			*final_str;
+	size_t			len;
+	unsigned int	number;
+	t_sign			sign;	
+}	t_strbuilder;
+
+static size_t	get_final_strlen(t_strbuilder strbuilder)
+{
+	size_t	count;
+
+	count = 0;
+	if (strbuilder.sign == NEGATIVE)
+		count++;
+	while (0 < strbuilder.number)
 	{
-		un /= 10;
-		result++;
+		strbuilder.number /= 10;
+		count++;
 	}
-	return (result);
+	return (count);
 }
 
-static void	build_str(unsigned int un, char *final_str, size_t *idx)
+static void	build_str(t_strbuilder *strbuilder)
 {
-	while (0 < un)
+	strbuilder->final_str[strbuilder->len] = 0;
+	strbuilder->len--;
+	while (0 < strbuilder->number)
 	{
-		final_str[*idx] = (un % 10) + '0';
-		un /= 10;
-		(*idx)++;
+		strbuilder->final_str[strbuilder->len--]
+			= (strbuilder->number % 10) + '0';
+		strbuilder->number /= 10;
 	}
+	if (strbuilder->sign == NEGATIVE)
+		strbuilder->final_str[0] = '-';
 }
 
 char	*ft_itoa(int n)
 {
-	char			*final_str;
-	unsigned int	final_str_len;
-	unsigned int	un;
-	int				sign;
-	size_t			i;
+	t_strbuilder	strbuilder;
 
-	sign = 1;
 	if (n < 0)
-		sign = -sign;
-	final_str_len = get_digit_nb(n);
-	final_str = malloc(sizeof(char) * final_str_len + 1);
-	if (!final_str)
+		strbuilder.sign = NEGATIVE;
+	else
+		strbuilder.sign = POSITIVE;
+	strbuilder.number = ft_abs(n);
+	strbuilder.len = get_final_strlen(strbuilder);
+	strbuilder.final_str = (char *) malloc(sizeof(char )
+			* (strbuilder.len + 1));
+	if (!strbuilder.final_str)
 		return (NULL);
-	un = ft_abs(n);
-	i = 0;
-	if (un == 0)
-		final_str[i++] = '0';
-	build_str(un, final_str, &i);
-	if (sign < 0)
-		final_str[i++] = '-';
-	final_str[i] = '\0';
-	return (ft_strrev(final_str));
+	build_str(&strbuilder);
+	return (strbuilder.final_str);
 }

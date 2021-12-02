@@ -6,7 +6,7 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:48:48 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/11/08 02:10:59 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/02 13:04:23 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	**ft_split(char const *s, char c)
 	char		**split;
 
 	init_indexes(&ids);
-	split = malloc(sizeof(char *) * (compute_substr_nb(s, c) + 1));
+	split = (char **)malloc(sizeof(char *) * (compute_substr_nb(s, c) + 1));
 	if (!split)
 		return (NULL);
 	while (s[ids.end])

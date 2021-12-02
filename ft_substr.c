@@ -6,7 +6,7 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:48:25 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/11/08 02:36:55 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/02 13:08:00 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*sub;
-	unsigned int	i;
+	char	*sub;
+	size_t	i;
 
 	if (len >= ft_strlen(s))
 		len = ft_strlen(s);
 	if (start > ft_strlen(s))
 		len = 0;
-	sub = malloc(sizeof(char) * (len + 1));
+	sub = (char *)malloc(sizeof(char) * (len + 1));
 	if (!sub)
 		return (NULL);
 	i = 0;

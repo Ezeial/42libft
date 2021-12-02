@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 01:49:01 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/12/02 12:49:53 by egiraldi         ###   ########lyon.fr   */
+/*   Created: 2021/11/08 01:49:05 by egiraldi          #+#    #+#             */
+/*   Updated: 2021/11/08 03:18:46 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *))
 {
-	size_t			i;
-	unsigned char	*dest;
-	unsigned char	*str;
+	t_list	*first;
+	t_list	*new;
 
-	i = 0;
-	dest = (unsigned char *)dst;
-	str = (unsigned char *)src;
-	while (i < n)
+	first = NULL;
+	while (lst)
 	{
-		dest[i] = str[i];
-		if (str[i] == (unsigned char)c)
-			return (dest + i + 1);
-		i++;
+		new = ft_lstnew(f(lst->content));
+		if (!new)
+		{
+			ft_lstclear(&first, del);
+			return (NULL);
+		}
+		else
+			ft_lstadd_back(&first, new);
+		lst = lst->next;
 	}
-	return (NULL);
+	return (first);
 }

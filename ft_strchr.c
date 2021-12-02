@@ -6,7 +6,7 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:48:46 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/11/08 01:48:47 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/02 13:04:47 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])
