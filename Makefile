@@ -20,13 +20,14 @@ RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror
 
 NAME			= libft.a
+INCLUDES		= libft.h
 
-%.o:			%.c
+%.o:			%.c $(INCLUDES)
 				$(CC) $(CFLAGS) -c $<
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS) libft.h
+$(NAME):		$(OBJS) 
 				ar rcs $(NAME) $(OBJS)
 
 clean:
@@ -40,8 +41,4 @@ re:				fclean $(NAME)
 bonus:			all $(BONUS_OBJS)
 				ar rcs $(NAME) $(BONUS_OBJS)
 
-so:
-				$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-				gcc -nostartfiles -shared -o libft.so $(OBJS) $(BONUS_OBJS)
-
-.PHONY:			all clean fclean re bonus so
+.PHONY:			all clean fclean re bonus

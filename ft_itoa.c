@@ -6,7 +6,7 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 00:52:50 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/12/02 12:44:02 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2021/12/02 13:26:14 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ static size_t	get_final_strlen(t_strbuilder strbuilder)
 {
 	size_t	count;
 
+	if (!strbuilder.number)
+		return (1);
 	count = 0;
 	if (strbuilder.sign == NEGATIVE)
 		count++;
@@ -43,6 +45,8 @@ static void	build_str(t_strbuilder *strbuilder)
 {
 	strbuilder->final_str[strbuilder->len] = 0;
 	strbuilder->len--;
+	if (strbuilder->number == 0)
+		strbuilder->final_str[0] = '0';
 	while (0 < strbuilder->number)
 	{
 		strbuilder->final_str[strbuilder->len--]
