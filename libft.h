@@ -63,6 +63,7 @@ void			ft_striteri(const char *s, void (*f)(unsigned int, char *));
 unsigned int	ft_abs(int n);
 int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
+char			*ft_itoa_un(size_t n);
 
 void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);
@@ -78,5 +79,7 @@ void			ft_lstdelone(t_list *lst, void (*del)(void*));
 void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void*));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void *));
+
+char			*ft_convert_base(char *number, char *base_from, char *base_to);
 
 #endif
