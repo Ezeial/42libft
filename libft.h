@@ -64,6 +64,7 @@ unsigned int	ft_abs(int n);
 int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
 char			*ft_itoa_un(size_t n);
+char			*ft_itoa_un_base(size_t number, char *base_to);
 
 void			ft_putchar_fd(char c, int fd);
 void			ft_putendl_fd(char *s, int fd);

@@ -17,9 +17,9 @@ static size_t	get_digit_nb(size_t n)
 
 char	*ft_itoa_un(size_t n)
 {
-	char			*final_str;
-	size_t			final_str_len;
-	int				i;
+	char	*final_str;
+	size_t	final_str_len;
+	size_t	i;
 
 	final_str_len = get_digit_nb(n);
 	final_str = malloc(sizeof(char) * final_str_len + 1);
