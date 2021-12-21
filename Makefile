@@ -1,45 +1,80 @@
-SRCS			=	ft_isalnum.c ft_isprint.c ft_memcmp.c  ft_putchar_fd.c ft_split.c \
-					ft_strlcat.c ft_strncmp.c ft_substr.c ft_atoi.c ft_isalpha.c \
-					ft_itoa.c ft_memcpy.c  ft_putendl_fd.c ft_strchr.c  ft_strlcpy.c \
-					ft_strnstr.c ft_tolower.c ft_bzero.c   ft_isascii.c ft_memccpy.c \
-					ft_memmove.c ft_putnbr_fd.c  ft_strdup.c  ft_strlen.c  ft_strrchr.c \
-					ft_toupper.c ft_calloc.c  ft_isdigit.c ft_memchr.c  ft_memset.c  \
-					ft_putstr_fd.c  ft_strjoin.c ft_strmapi.c ft_strtrim.c ft_memdup.c \
-					ft_abs.c ft_strrev.c ft_striteri.c ft_convert_base.c ft_itoa_un.c \
-					ft_itoa_un_base.c
+#-----------------------------------------------#
+#------------------[ DIR NAME ]-----------------#
+#-----------------------------------------------#
 
-OBJS			= $(SRCS:.c=.o)
+DIR_SRCS 		= srcs
+DIR_CHARACTER	= character
+DIR_CONVERSION	= conversion
+DIR_FD			= file_descriptor
+DIR_LL			= linked_list
+DIR_MATH		= math
+DIR_MEMORY		= memory
+DIR_STRING		= string
 
-BONUS			=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c \
-					ft_lstdelone.c ft_lstiter.c ft_lstlast.c \
-					ft_lstmap.c ft_lstnew.c ft_lstsize.c
+DIR_OBJS		= objs
 
-BONUS_OBJS		= $(BONUS:.c=.o)
+DIR_INCLUDES	= includes
 
-CC				= gcc
-RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror
+#-----------------------------------------------#
+#-----------------[ SRCS NAME ]-----------------#
+#-----------------------------------------------#
 
-NAME			= libft.a
-INCLUDES		= libft.h
+SRCS_CHARACTER	=	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
+					ft_tolower.c ft_toupper.c
+SRCS_CONVERSION	=	ft_atoi.c ft_convert_base.c ft_itoa_un_base.c ft_itoa_un.c ft_itoa.c
+SRCS_FD			=	ft_putchar_fd.c ft_putendl_fd.c 
+SRCS_LL			=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
+					ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
+SRCS_MATH		=	ft_abs.c
+SRCS_MEMORY		= 	ft_bzero.c ft_calloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c \
+					ft_memcpy.c ft_memdup.c ft_memmove.c ft_memset.c
+SRCS_STRING		=	ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c \
+					ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c \
+					ft_strnstr.c ft_strrchr.c ft_strrev.c ft_strtrim.c ft_substr.c
 
-%.o:			%.c $(INCLUDES)
-				$(CC) $(CFLAGS) -c $<
+SRCS_FLAT		=	$(addprefix $(DIR_CHARACTER)/, $(SRCS_CHARACTER)) \
+					$(addprefix $(DIR_CONVERSION)/, $(SRCS_CONVERSION)) \
+					$(addprefix $(DIR_FD)/, $(SRCS_FD)) \
+					$(addprefix $(DIR_LL)/, $(SRCS_LL)) \
+					$(addprefix $(DIR_MATH)/, $(SRCS_MATH)) \
+					$(addprefix $(DIR_MEMORY)/, $(SRCS_MEMORY)) \
+					$(addprefix $(DIR_STRING)/, $(SRCS_STRING)) 
+		
+SRCS 			=	$(addprefix $(DIR_SRCS)/, $(SRCS_FLAT))
 
-all:			$(NAME)
+#-----------------------------------------------#
+#----------------[ COMPILATION ]----------------#
+#-----------------------------------------------#
 
-$(NAME):		$(OBJS) 
-				ar rcs $(NAME) $(OBJS)
+OBJS			=	$(addprefix $(DIR_OBJS)/, $(SRCS_FLAT:.c=.o))
+HEADERS			=	$(addprefix $(DIR_INCLUDES)/, libft.h)
+
+CC				=	gcc
+RM				=	rm -rf
+CFLAGS			=	-Wall -Wextra -Werror
+
+NAME			=	libft.a
+
+#-----------------------------------------------#
+#-------------------[ TARGET ]------------------#
+#-----------------------------------------------#
+
+all:				$(NAME)
+
+$(DIR_OBJS)/%.o:	$(DIR_SRCS)/%.c $(HEADERS)
+					mkdir -p $(dir $@)
+					$(CC) $(CFLAGS) -I./$(DIR_INCLUDES) -c $< -o $@
+
+$(NAME):			$(OBJS)
+					ar rcs $(NAME) $(OBJS)
 
 clean:
-				$(RM) $(OBJS) $(BONUS_OBJS)
+					$(RM) $(OBJS)
 
-fclean:			clean
-				$(RM) $(NAME)
+fclean:				clean
+					$(RM) $(DIR_OBJS)
+					$(RM) $(NAME)
 
-re:				fclean $(NAME)
+re:					fclean $(NAME)
 
-bonus:			all $(BONUS_OBJS)
-				ar rcs $(NAME) $(BONUS_OBJS)
-
-.PHONY:			all clean fclean re bonus
+.PHONY:				all clean fclean re
