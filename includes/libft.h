@@ -23,6 +23,9 @@
 /*----------------------------------------------*/
 /*-----------------[ TYPEDEFS ]-----------------*/
 /*----------------------------------------------*/
+/*                  [ GLOBAL ]                  */
+
+typedef int(*predicate)(void *el, void *arg);
 
 /*                  [ LISTS ]                   */
 
@@ -31,6 +34,14 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
+/*                 [ VECTOR ]                   */
+
+typedef void * t_vector;
+typedef void * t_vectorptr; 
+
+typedef void(*vector_callback)(void *el, void *arg);
+
 
 /*----------------------------------------------*/
 /*----------------[ PROTOTYPES ]----------------*/
@@ -107,5 +118,25 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
 char			*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 void			ft_striteri(const char *s, void (*f)(unsigned int, char *));
+
+
+/*                  [ VECTOR ]                 */
+
+void			*get_vec_begin(t_vector vec);
+size_t			get_vec_type_size(t_vector vec);
+size_t			*get_vec_capacity(t_vector vec);
+size_t			*get_vec_used(t_vector vec);
+
+t_vector		ft_vecnew(size_t initial_capacity, size_t type_size);
+void			ft_vecclear(t_vector vec);
+void			*ft_vecget(t_vector vec, size_t i);
+void			ft_vecpush_back(t_vectorptr vecptr, void *data);
+void			ft_vecpop_back(t_vector vec);
+
+void			ft_vecfor_each(t_vector vec, vector_callback callback, void *arg);
+t_vector		ft_vecmap(t_vector vec, vector_callback callback, void *arg);
+void			*ft_vecfind(t_vector vec, predicate predicate, void *arg);
+t_vector		ft_vecfilter(t_vector vec, predicate predicate, void *arg);
+
 
 #endif

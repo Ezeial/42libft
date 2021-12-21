@@ -10,6 +10,7 @@ DIR_LL			= linked_list
 DIR_MATH		= math
 DIR_MEMORY		= memory
 DIR_STRING		= string
+DIR_VECTOR		= vector
 
 DIR_OBJS		= objs
 
@@ -31,6 +32,8 @@ SRCS_MEMORY		= 	ft_bzero.c ft_calloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c \
 SRCS_STRING		=	ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c \
 					ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c \
 					ft_strnstr.c ft_strrchr.c ft_strrev.c ft_strtrim.c ft_substr.c
+SRCS_VECTOR		=   ft_vecclear.c ft_vecfilter.c ft_vecfind.c ft_vecfor_each.c ft_vecget.c \
+					ft_vecmap.c ft_vecnew.c ft_vecpop_back.c ft_vecpush_back.c get_vec_data.c
 
 SRCS_FLAT		=	$(addprefix $(DIR_CHARACTER)/, $(SRCS_CHARACTER)) \
 					$(addprefix $(DIR_CONVERSION)/, $(SRCS_CONVERSION)) \
@@ -38,7 +41,9 @@ SRCS_FLAT		=	$(addprefix $(DIR_CHARACTER)/, $(SRCS_CHARACTER)) \
 					$(addprefix $(DIR_LL)/, $(SRCS_LL)) \
 					$(addprefix $(DIR_MATH)/, $(SRCS_MATH)) \
 					$(addprefix $(DIR_MEMORY)/, $(SRCS_MEMORY)) \
-					$(addprefix $(DIR_STRING)/, $(SRCS_STRING)) 
+					$(addprefix $(DIR_STRING)/, $(SRCS_STRING)) \
+					$(addprefix $(DIR_VECTOR)/, $(SRCS_VECTOR)) 
+
 		
 SRCS 			=	$(addprefix $(DIR_SRCS)/, $(SRCS_FLAT))
 
@@ -51,7 +56,7 @@ HEADERS			=	$(addprefix $(DIR_INCLUDES)/, libft.h)
 
 CC				=	gcc
 RM				=	rm -rf
-CFLAGS			=	-Wall -Wextra -Werror
+CFLAGS			=	-Wall -Wextra -Werror -g3
 
 NAME			=	libft.a
 
