@@ -85,10 +85,13 @@ t_list			*ft_lstnew();
 size_t			ft_lstsize(t_list *lst);
 void			ft_lstadd_back(t_list *lst, void *data);
 void			ft_lstadd_front(t_list *lst, void *data);
+void			*ft_lstpop_back(t_list *lst);
 void			ft_lstclear(t_list *lst, void (*del)(void*));
 void			ft_lstdelone(t_list_elem *elem, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void*, void*), void *arg);
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void*, void*), void *arg);
+void			ft_lstshift_up(t_list *lst);
+void			ft_lstshift_down(t_list *lst);
 
 /*                   [ MATH ]                  */
 
@@ -105,6 +108,7 @@ void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_calloc(size_t count, size_t size);
+void			ft_swap_int(int *a , int *b);
 
 /*                  [ STRING ]                 */
 
@@ -124,7 +128,7 @@ char			*ft_strtrim(char const *s1, char const *set);
 char			**ft_split(char const *s, char c);
 char			*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 void			ft_striteri(const char *s, void (*f)(unsigned int, char *));
-
+int				ft_is_integer(char *str);
 
 /*                  [ VECTOR ]                 */
 
@@ -144,5 +148,7 @@ t_vector		ft_vecmap(t_vector vec, vector_callback callback, void *arg);
 void			*ft_vecfind(t_vector vec, predicate predicate, void *arg);
 t_vector		ft_vecfilter(t_vector vec, predicate predicate, void *arg);
 
+/*                 [ ALGORITHM ]               */
 
+void			ft_quicksort(int *array, size_t low, size_t high);
 #endif
