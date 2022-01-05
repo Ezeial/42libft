@@ -1,15 +1,15 @@
 #include "libft.h"
 
-static size_t ft_partition(int *array, size_t low, size_t high)
+static size_t ft_partition(int *array, int low, int high)
 {
-	size_t	current_idx;
-	size_t	current_small_idx;
+	int	current_idx;
+	int	current_small_idx;
 	
 	current_idx = low;
 	current_small_idx = low;
 	while (current_idx < high + 1)
 	{
-		if (array[current_idx] > array[high])
+		if (array[current_idx] < array[high])
 		{
 			ft_swap_int(&array[current_small_idx], &array[current_idx]);
 			current_small_idx++;
@@ -21,15 +21,13 @@ static size_t ft_partition(int *array, size_t low, size_t high)
 }
 
 
-void	ft_quicksort(int *array, size_t low, size_t high)
+void	ft_quicksort(int *array, int low, int high)
 {
-	size_t	pivot;
+	int	pivot;
 
 	if (low < high)
 	{
 		pivot = ft_partition(array, low, high);
-		if (pivot == 0)
-			return ;
 		ft_quicksort(array, low, pivot - 1);
 		ft_quicksort(array, pivot + 1, high);
 	}

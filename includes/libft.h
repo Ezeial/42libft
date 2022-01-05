@@ -80,16 +80,16 @@ void			ft_putstr_fd(char *s, int fd);
 
 /*                [ LINKED LIST ]               */
 
-t_list_elem		*ft_lstcreate_el(void *data);
+t_list_elem		*ft_lstcreate_elem(void *data);
 t_list			*ft_lstnew();
 size_t			ft_lstsize(t_list *lst);
-void			ft_lstadd_back(t_list *lst, void *data);
-void			ft_lstadd_front(t_list *lst, void *data);
+void			ft_lstpush_back(t_list *lst, t_list_elem *new_elem);
+void			ft_lstpush_front(t_list *lst, t_list_elem *new_elem);
 void			*ft_lstpop_back(t_list *lst);
 void			ft_lstclear(t_list *lst, void (*del)(void*));
 void			ft_lstdelone(t_list_elem *elem, void (*del)(void*));
-void			ft_lstiter(t_list *lst, void (*f)(void*, void*), void *arg);
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void*, void*), void *arg);
+void			ft_lstiter(t_list *lst, void (*f)(size_t, void*, void*), void *arg);
+t_list			*ft_lstmap(t_list *lst, void *(*f)(size_t, void*, void*), void *arg, void (*del)(void *));
 void			ft_lstshift_up(t_list *lst);
 void			ft_lstshift_down(t_list *lst);
 
@@ -150,5 +150,5 @@ t_vector		ft_vecfilter(t_vector vec, predicate predicate, void *arg);
 
 /*                 [ ALGORITHM ]               */
 
-void			ft_quicksort(int *array, size_t low, size_t high);
+void			ft_quicksort(int *array, int low, int high);
 #endif

@@ -4,7 +4,6 @@
  * 	pop the last node of the lst and return a pointer
  * 	to the data holded by it
  * 	YOU NEED TO FREE THE DATA
- *
  */
 
 void	*ft_lstpop_back(t_list *lst)
