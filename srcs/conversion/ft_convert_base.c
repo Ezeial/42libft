@@ -6,7 +6,7 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 21:11:11 by egiraldi          #+#    #+#             */
-/*   Updated: 2022/05/17 02:58:58 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2022/05/17 03:10:13 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static void	ft_norm(t_number_data nb_data, size_t *baselen,
 	char *base_to, size_t *final_len)
 {
 	*baselen = ft_strlen(base_to);
-	*final_len = get_digit_number_in_base(nb_data.number, baselen);
+	*final_len = get_digit_number_in_base(nb_data.number, *baselen);
 	if (nb_data.sign < 0)
 	{
 		if (nb_data.number != 0)
@@ -62,7 +62,7 @@ static char	*ft_convert_number(t_number_data nb_data, char *base_to)
 	size_t	i;
 	size_t	baselen;
 
-	ft_norm(nb_data, &baselen, &base_to, &final_len);
+	ft_norm(nb_data, &baselen, base_to, &final_len);
 	final_str = malloc(sizeof(char) * (final_len + 1));
 	if (!final_str)
 		return (NULL);
