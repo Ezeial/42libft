@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_vecfilter.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/16 21:13:36 by egiraldi          #+#    #+#             */
+/*   Updated: 2022/05/16 21:22:08 by egiraldi         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-t_vector	ft_vecfilter(t_vector vec, predicate predicate, void *arg)
+t_vector	ft_vecfilter(t_vector vec, t_predicate predicate, void *arg)
 {
 	size_t		used;
 	size_t		i;

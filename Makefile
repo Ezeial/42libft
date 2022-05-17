@@ -23,8 +23,9 @@ DIR_INCLUDES	= includes
 
 SRCS_CHARACTER	=	ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c \
 					ft_tolower.c ft_toupper.c
-SRCS_CONVERSION	=	ft_atoi.c ft_convert_base.c ft_itoa_un_base.c ft_itoa_un.c ft_itoa.c
-SRCS_FD			=	ft_putchar_fd.c ft_putendl_fd.c 
+SRCS_CONVERSION	=	ft_atoi.c ft_convert_base.c ft_convert_base_utils.c ft_itoa_un_base.c ft_itoa_un.c \
+					ft_itoa.c	ft_zpadd_nb.c
+SRCS_FD			=	ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_putnbr_fd.c
 SRCS_LL			=	ft_lstpush_back.c ft_lstpush_front.c ft_lstclear.c ft_lstdelone.c \
 					ft_lstiter.c ft_lstmap.c ft_lstnew.c ft_lstsize.c ft_lstcreate_elem.c \
 					ft_lstshift_up.c ft_lstshift_down.c ft_lstpop_back.c

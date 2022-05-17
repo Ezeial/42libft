@@ -6,7 +6,7 @@
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 02:00:38 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/12/02 12:43:30 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2022/05/17 02:54:58 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,29 +25,27 @@
 /*----------------------------------------------*/
 /*                  [ GLOBAL ]                  */
 
-typedef int(*predicate)(void *el, void *arg);
+typedef int		(*t_predicate)(void *el, void *arg);
 
 /*                  [ LISTS ]                   */
 
 typedef struct s_list_elem {
 	struct s_list_elem	*next;
 	struct s_list_elem	*prev;
-	void		*data;
-}				t_list_elem;
+	void				*data;
+}	t_list_elem;
 
 typedef struct s_list
 {
 	t_list_elem	*top;
 	t_list_elem	*bottom;
-}				t_list;
+}	t_list;
 
 /*                 [ VECTOR ]                   */
 
-typedef void * t_vector;
-typedef void * t_vectorptr; 
-
-typedef void(*vector_callback)(void *el, void *arg);
-
+typedef void	*t_vector;
+typedef void	*t_vectorptr;
+typedef void	(*t_vector_callback)(void *el, void *arg);
 
 /*----------------------------------------------*/
 /*----------------[ PROTOTYPES ]----------------*/
@@ -65,11 +63,14 @@ int				ft_tolower(int c);
 
 /*                [ CONVERSION ]               */
 
+size_t			get_weight(char c, char *base);
+size_t			get_digit_number_in_base(size_t number, size_t baselen);
 int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
 char			*ft_itoa_un(size_t n);
 char			*ft_itoa_un_base(size_t number, char *base_to);
 char			*ft_convert_base(char *number, char *base_from, char *base_to);
+char			*ft_zpadd_nb(char *number, size_t final_len);
 
 /*              [ FILE DESCRIPTOR ]            */
 
@@ -81,15 +82,17 @@ void			ft_putstr_fd(char *s, int fd);
 /*                [ LINKED LIST ]               */
 
 t_list_elem		*ft_lstcreate_elem(void *data);
-t_list			*ft_lstnew();
+t_list			*ft_lstnew(void);
 size_t			ft_lstsize(t_list *lst);
 void			ft_lstpush_back(t_list *lst, t_list_elem *new_elem);
 void			ft_lstpush_front(t_list *lst, t_list_elem *new_elem);
 void			*ft_lstpop_back(t_list *lst);
 void			ft_lstclear(t_list *lst, void (*del)(void*));
 void			ft_lstdelone(t_list_elem *elem, void (*del)(void*));
-void			ft_lstiter(t_list *lst, void (*f)(size_t, void*, void*), void *arg);
-t_list			*ft_lstmap(t_list *lst, void *(*f)(size_t, void*, void*), void *arg, void (*del)(void *));
+void			ft_lstiter(t_list *lst, void (*f)(size_t, void*, void*), \
+					void *arg);
+t_list			*ft_lstmap(t_list *lst, void *(*f)(size_t, void*, void*), \
+					void *arg, void (*del)(void *));
 void			ft_lstshift_up(t_list *lst);
 void			ft_lstshift_down(t_list *lst);
 
@@ -108,7 +111,7 @@ void			*ft_memmove(void *dest, const void *src, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_calloc(size_t count, size_t size);
-void			ft_swap_int(int *a , int *b);
+void			ft_swap_int(int *a, int *b);
 
 /*                  [ STRING ]                 */
 
@@ -143,12 +146,14 @@ void			*ft_vecget(t_vector vec, size_t i);
 void			ft_vecpush_back(t_vectorptr vecptr, void *data);
 void			ft_vecpop_back(t_vector vec);
 
-void			ft_vecfor_each(t_vector vec, vector_callback callback, void *arg);
-t_vector		ft_vecmap(t_vector vec, vector_callback callback, void *arg);
-void			*ft_vecfind(t_vector vec, predicate predicate, void *arg);
-t_vector		ft_vecfilter(t_vector vec, predicate predicate, void *arg);
+void			ft_vecfor_each(t_vector vec, t_vector_callback callback, \
+					void *arg);
+t_vector		ft_vecmap(t_vector vec, t_vector_callback callback, void *arg);
+void			*ft_vecfind(t_vector vec, t_predicate predicate, void *arg);
+t_vector		ft_vecfilter(t_vector vec, t_predicate predicate, void *arg);
 
 /*                 [ ALGORITHM ]               */
 
 void			ft_quicksort(int *array, int low, int high);
+
 #endif

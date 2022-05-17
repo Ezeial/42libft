@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_is_integer.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/16 21:18:55 by egiraldi          #+#    #+#             */
+/*   Updated: 2022/05/16 21:19:00 by egiraldi         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_is_integer(char *str)
 {
-	long int number;
-	int sign;
+	long int	number;
+	int			sign;
 
 	if (ft_strlen(str) > 11)
 		return (0);
@@ -27,4 +39,3 @@ int	ft_is_integer(char *str)
 	else
 		return (number <= 2147483648);
 }
-

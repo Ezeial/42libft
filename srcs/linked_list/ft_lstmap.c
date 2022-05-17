@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:49:05 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/11/08 03:18:46 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2022/05/16 21:19:56 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(size_t, void*, void*), void *arg, void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(size_t, void*, void*),
+	void *arg, void (*del)(void *))
 {
 	t_list_elem	*current;
-	t_list_elem *new_elem;
+	t_list_elem	*new_elem;
 	t_list		*new_list;
 	size_t		i;
 

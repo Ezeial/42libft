@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: egiraldi <egiraldi@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 01:49:06 by egiraldi          #+#    #+#             */
-/*   Updated: 2021/11/08 03:18:44 by egiraldi         ###   ########lyon.fr   */
+/*   Updated: 2022/05/16 21:19:32 by egiraldi         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstiter(t_list *lst, void (*f)(size_t, void*, void*), void *arg)
 	t_list_elem	*current;
 	size_t		i;
 
-	current = lst->top; 
+	current = lst->top;
 	i = 0;
 	while (current)
 	{
