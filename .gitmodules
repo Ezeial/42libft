@@ -1,0 +1,3 @@
+[submodule "srcs/gnl"]
+	path = srcs/gnl
+	url = git@github.com:Ezeial/42get_next_line.git
