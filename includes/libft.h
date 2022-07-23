@@ -19,6 +19,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include "../srcs/gnl/get_next_line.h"
 
 /*----------------------------------------------*/
 /*-----------------[ TYPEDEFS ]-----------------*/

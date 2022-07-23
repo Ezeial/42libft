@@ -12,6 +12,7 @@ DIR_MEMORY		= memory
 DIR_STRING		= string
 DIR_VECTOR		= vector
 DIR_ALGORITHM	= algorithm
+DIR_GNL			= gnl
 
 DIR_OBJS		= objs
 
@@ -39,6 +40,7 @@ SRCS_STRING		=	ft_split.c ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c \
 SRCS_VECTOR		=   ft_vecclear.c ft_vecfilter.c ft_vecfind.c ft_vecfor_each.c ft_vecget.c \
 					ft_vecmap.c ft_vecnew.c ft_vecpop_back.c ft_vecpush_back.c get_vec_data.c
 SRCS_ALGORITHM	=	ft_quicksort.c
+SRCS_GNL		=	get_next_line.c get_next_line_utils.c
 
 SRCS_FLAT		=	$(addprefix $(DIR_CHARACTER)/, $(SRCS_CHARACTER)) \
 					$(addprefix $(DIR_CONVERSION)/, $(SRCS_CONVERSION)) \
@@ -48,7 +50,8 @@ SRCS_FLAT		=	$(addprefix $(DIR_CHARACTER)/, $(SRCS_CHARACTER)) \
 					$(addprefix $(DIR_MEMORY)/, $(SRCS_MEMORY)) \
 					$(addprefix $(DIR_STRING)/, $(SRCS_STRING)) \
 					$(addprefix $(DIR_VECTOR)/, $(SRCS_VECTOR)) \
-					$(addprefix $(DIR_ALGORITHM)/, $(SRCS_ALGORITHM)) 
+					$(addprefix $(DIR_ALGORITHM)/, $(SRCS_ALGORITHM)) \
+					$(addprefix $(DIR_GNL)/, $(SRCS_GNL))
 
 		
 SRCS 			=	$(addprefix $(DIR_SRCS)/, $(SRCS_FLAT))
