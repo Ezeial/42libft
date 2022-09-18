@@ -29,7 +29,7 @@ SRCS_CONVERSION	=	ft_atoi.c ft_convert_base.c ft_convert_base_utils.c ft_itoa_un
 SRCS_FD			=	ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_putnbr_fd.c
 SRCS_LL			=	ft_lstpush_back.c ft_lstpush_front.c ft_lstclear.c ft_lstdelone.c \
 					ft_lstiter.c ft_lstmap.c ft_lstnew.c ft_lstsize.c ft_lstcreate_elem.c \
-					ft_lstshift_up.c ft_lstshift_down.c ft_lstpop_back.c
+					ft_lstshift_up.c ft_lstshift_down.c ft_lstpop_front.c
 SRCS_MATH		=	ft_abs.c
 SRCS_MEMORY		= 	ft_bzero.c ft_calloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c \
 					ft_memcpy.c ft_memdup.c ft_memmove.c ft_memset.c ft_swap_int.c

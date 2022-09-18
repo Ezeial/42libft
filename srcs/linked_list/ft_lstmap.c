@@ -12,6 +12,8 @@
 
 #include "libft.h"
 
+/* FIX MALLOC GUARD */
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(size_t, void*, void*),
 	void *arg, void (*del)(void *))
 {

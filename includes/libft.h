@@ -87,7 +87,7 @@ t_list			*ft_lstnew(void);
 size_t			ft_lstsize(t_list *lst);
 void			ft_lstpush_back(t_list *lst, t_list_elem *new_elem);
 void			ft_lstpush_front(t_list *lst, t_list_elem *new_elem);
-void			*ft_lstpop_back(t_list *lst);
+t_list_elem		*ft_lstpop_front(t_list *lst);
 void			ft_lstclear(t_list *lst, void (*del)(void*));
 void			ft_lstdelone(t_list_elem *elem, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(size_t, void*, void*), \
